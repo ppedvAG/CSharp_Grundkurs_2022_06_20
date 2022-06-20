@@ -91,7 +91,8 @@ ist {wort}";
 		//Expliziter Cast
 		double d = 435.382;
 		float f = (float) d; //double ist größer float -> möglicher Verlust
-
+		
+		Console.WriteLine(d);
 		Console.WriteLine(implizit.ToString()); //ToString um alles mögliche zu einem string zu konvertieren
 		#endregion
 
