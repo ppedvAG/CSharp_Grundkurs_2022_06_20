@@ -75,10 +75,10 @@ ist {wort}";
 		string eingabe = Console.ReadLine();
 		Console.WriteLine(eingabe);
 
+		char c = Console.ReadKey().KeyChar; //Enter automatisch
+
 		int inputZahl = int.Parse(eingabe); //string zu int konvertieren
 		Console.WriteLine(inputZahl * 2);
-
-		char c = Console.ReadKey().KeyChar; //Enter automatisch
 
 		int convert = Convert.ToInt32(eingabe); //Convert statt Parse (funktioniert fast gleich)
 		#endregion
@@ -115,6 +115,7 @@ ist {wort}";
 
 		Console.WriteLine(zahl1 / zahl2); //int Division, Ergebnis 2
 		Console.WriteLine((double) zahl1 / zahl2); //double Division, Ergebnis 2.3333
+		Console.WriteLine(327d / zahl2);
 		#endregion
 
 		//Strg + K, C: Alle markierten Zeilen auskommentieren
