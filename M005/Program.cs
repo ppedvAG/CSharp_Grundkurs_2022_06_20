@@ -44,6 +44,8 @@ class Program
 
 		(int add2, int sub2) = SubtrahiereUndAddiereNamen(4, 2);
 		Console.WriteLine($"{add2}, {sub2}"); //Werte rausholen
+
+		Console.WriteLine(PrintWochentag(Wochentag.Do));
 	}
 
 	static void PrintAddition(int z1, int z2) //void: kein Rückgabewert
@@ -97,4 +99,30 @@ class Program
 		return; //Aus Funktion herausspringen / Funktion beenden
 		Console.WriteLine(zahl); //kann nicht erreicht werden
 	}
+
+	static string PrintWochentag(Wochentag tag)
+	{
+		switch (tag)
+		{
+			case Wochentag.Mo: return "Montag";
+			case Wochentag.Di: return "Dienstag";
+			case Wochentag.Mi: return "Mittwoch";
+			case Wochentag.Do: return "Donnerstag";
+			case Wochentag.Fr: return "Freitag";
+			case Wochentag.Sa: return "Samstag";
+			case Wochentag.So: return "Sonntag";
+			default: return "Fehler";
+		}
+	}
+}
+
+public enum Wochentag
+{
+	Mo,
+	Di,
+	Mi,
+	Do,
+	Fr,
+	Sa,
+	So
 }
