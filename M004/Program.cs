@@ -31,11 +31,13 @@
 			}
 			while (c < d);
 
+			//for + Tab + Tab
 			for (int i = 0; i < 10; i++)
 			{
 				Console.WriteLine("for: " + i);
 			}
 
+			//forr + Tab + Tab
 			for (int i = 9; i >= 0; i--)
 			{
 				Console.WriteLine("forr: " + i);
@@ -46,6 +48,7 @@
 
 			}
 
+			//foreach + Tab + Tab
 			int[] zahlen = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 			foreach (int item in zahlen) //Kein daneben greifen bei Arrays möglich
 			{
@@ -63,6 +66,15 @@
 
 			for (int i = 0; i < Enum.GetValues<Wochentag>().Length; i++)
 				Console.WriteLine((Wochentag) i); //Alle Werte printen
+
+			if (heute == Wochentag.Mo)
+				Console.WriteLine("Wochenanfang");
+			else if (heute == Wochentag.Di || heute == Wochentag.Mi || heute == Wochentag.Do)
+				Console.WriteLine("Wochenmitte");
+			else if (heute == Wochentag.Fr || heute == Wochentag.Sa || heute == Wochentag.So)
+				Console.WriteLine("Wochenende");
+			else
+				Console.WriteLine("Fehler");
 
 			switch (heute)
 			{
