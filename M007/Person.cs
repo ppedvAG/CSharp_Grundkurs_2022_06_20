@@ -6,6 +6,7 @@ public class Person
 
 	public Person(int id) => ID = id;
 
+	//~ + Tab + Tab
 	~Person()
 	{
 		Console.WriteLine($"Person eingesammelt: {ID}");
