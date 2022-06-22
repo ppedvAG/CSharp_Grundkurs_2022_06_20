@@ -53,7 +53,7 @@ public class Person
 		name = nachname;
 	}
 
-	public Person(string vorname, string nachname, int gehalt) : this(vorname, nachname)
+	public Person(string vorname, string nachname, int gehalt) : this(vorname, nachname) //Konstruktoren verketten
 	{
 		this.gehalt = gehalt;
 	}
