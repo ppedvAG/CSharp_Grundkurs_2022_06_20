@@ -6,20 +6,56 @@ namespace Lab12_ExcpetionHandling
 
     class Program
     {
-        //Füge in die Main()-Methode eine Try/Catch-Mechanik ein, welche mindestens víer verschiedene Exceptions abfängt und dem Benutzer eine
-        //sinnvolle Fehlermeldung ausgibt. Etabliere zudem eine Mechanik, welche das Programm im Fehlerfall wiederholt.
         static void Main(string[] args)
         {
-			string eingabe = GetEingabe();
+            //Variable, welche Wiederholung definiert
+            bool wiederholen;
+            //Schleife für Wiederholung
+            do
+            {
+                wiederholen = false;
 
-			Term term = new Term(eingabe);
+                //Eingabe durch Benutzer
+                string eingabe = GetEingabe();
 
-			int ergebnis = BerechneTerm(term);
+                //Try-Block für Code, welche möglicherweise Fehler verursacht
+                try
+                {
+                    Term term = new Term(eingabe);
 
-			Console.WriteLine($"\t={ergebnis}");
+                    int ergebnis = BerechneTerm(term);
+
+                    Console.WriteLine($"\t={ergebnis}");
+                }
+                //Catch-Blöcke zur Bearbeitung der Fehler
+                catch (OverflowException)
+                {
+                    Console.WriteLine("Eine deiner Zahlen war zu groß oder zu klein.\n");
+                    //Variablenzuweisung für Wiederholung
+                    wiederholen = true;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Du hast ein nicht-erlaubtes Zeichen verwendet.\n");
+                    wiederholen = true;
+                }
+                catch (DivideByZeroException)
+                {
+                    Console.WriteLine("Du hast versucht durch 0 zu teilen.\n");
+                    wiederholen = true;
+                }
+                catch (NullReferenceException)
+                {
+                    Console.WriteLine("Du hast ein nicht-erlaubtes Rechenzeichen verwendet.\n");
+                    wiederholen = true;
+                }
+                catch (Exception)
+                {
+
+                }
+            } while (wiederholen);
         }
 
-        //Codeänderungen sollen nur in der Main()-Methode stattfinden.
         static string GetEingabe()
         {
             Console.WriteLine("Bitte gib einen Term mit zwei Zahlen und einem Grundrechenoperator (+ - * /) ein (z.B.: 25+13):");
@@ -37,6 +73,7 @@ namespace Lab12_ExcpetionHandling
                 case Rechenoperation.Multiplikation:
                     return term.Zahl1 * term.Zahl2;
                 default:
+                    //Teilung kann DivideByZeroException verursachen
                     return term.Zahl1 / term.Zahl2;
             }
         }
@@ -54,8 +91,10 @@ namespace Lab12_ExcpetionHandling
             this.Eingabe = term;
             this.Operation = this.GetRechenoperation();
 
+            //SplitTerm kann Null zurückgeben
             string[] zahlen = this.SplitTerm();
 
+            //Parsing kann FormatExceptions und OverflowExceptions verursachen
             this.Zahl1 = int.Parse(zahlen[0]);
             this.Zahl2 = int.Parse(zahlen[1]);
         }
@@ -87,7 +126,8 @@ namespace Lab12_ExcpetionHandling
                 case Rechenoperation.Division:
                     return this.Eingabe.Split('/');
             }
-            return null;
+            return null; //Null-Rückgabe kann später eine NullReferenceException verursachen
         }
     }
 }
+
