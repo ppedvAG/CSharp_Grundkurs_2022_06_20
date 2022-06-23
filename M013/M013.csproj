@@ -5,7 +5,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>M013.Events</StartupObject>
+    <StartupObject>M013_Loesung.Program</StartupObject>
   </PropertyGroup>
 
 </Project>
