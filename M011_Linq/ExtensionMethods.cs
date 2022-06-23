@@ -12,4 +12,9 @@ public static class ExtensionMethods //Statische Klasse
 	{
 		return list.OrderBy(e => Random.Shared.Next());
 	}
+
+	public static void PrintList(this IEnumerable<Fahrzeug> list)
+	{
+		Console.WriteLine(list.Aggregate("", (agg, fzg) => agg + $"Das Fahrzeug hat die Marke {fzg.Marke} und kann maximal {fzg.MaxGeschwindigkeit}km/h fahren.\n"));
+	}
 }
