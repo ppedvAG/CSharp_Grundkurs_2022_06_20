@@ -20,6 +20,11 @@
 			<RowDefinition/>
 			<RowDefinition/>
 		</Grid.RowDefinitions>
+		<Menu Grid.Column="1">
+			<MenuItem Header="Menu">
+				<MenuItem Header="Test"/>
+			</MenuItem>
+		</Menu>
 		<Button Content="Ein Button" Click="EinButtonClicked" 
 				Grid.Column="1" Grid.Row="5" Margin="10,20"/>
 		<TextBlock Grid.Column="1" Grid.Row="4" FontSize="32" Name="TB"
